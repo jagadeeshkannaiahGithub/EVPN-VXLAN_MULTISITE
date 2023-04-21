@@ -1,0 +1,27 @@
+---
+# vars file for Site1-BGW2
+
+router_id: 10.10.10.32
+hostname: BGW102
+
+loopbacks:
+  - { interface: loopback0, addr: 10.10.10.32, mask: 32, tag: 54100, description: L0,  }
+  - { interface: loopback1, addr: 10.10.10.132, mask: 32, tag: 54100, description: L1, }
+  - { interface: loopback100, addr: 10.10.100.132, mask: 32, tag: 54100, description: L100, }
+
+
+Interface:   
+  - { interface: Ethernet1/49, addr: 192.168.10.106, mask: 30, tag: 100,description: To Site1-Spine1, evpn_multisite: fabric-tracking, }  
+
+
+Core_Interface:
+  - { interface: Ethernet1/2, addr: 192.168.26.1, mask: 30, tag: 54100, description: To DCI, evpn_multisite: dci-tracking, } 
+
+
+PIMInterface:
+  - { interface: Ethernet1/49,}  
+
+
+Core_ebgp_neighbors:
+ - { remote_as: 100, neighbor: 192.168.26.2, update_source: Ethernet1/2, }
+

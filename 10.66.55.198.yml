@@ -1,0 +1,16 @@
+---
+# vars file for Site1-L2
+
+router_id: 10.10.10.12
+hostname: Leaf102
+
+loopbacks:
+  - { interface: loopback0, addr: 10.10.10.12, mask: 32, description: L0, }
+  - { interface: loopback1, addr: 10.10.10.112, mask: 32, description: L1, }
+
+Interface:   
+  - { interface: Ethernet1/49, addr: 192.168.10.6, mask: 30, description: To Spine1-1 }
+
+
+l2_interface:
+  - { access_port: Ethernet1/1, access_vlan_id: 12, description: Access vlan12 } 
