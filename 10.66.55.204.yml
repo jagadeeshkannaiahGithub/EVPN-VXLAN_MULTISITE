@@ -1,0 +1,20 @@
+
+---
+# vars file for Site2-Spine1
+
+router_id: 10.10.20.21
+hostname: Spine201
+
+loopbacks:
+  - { interface: loopback0, addr: 10.10.20.21, mask: 32, description: L0,  }
+  - { interface: loopback1, addr: 10.10.20.211, mask: 32, description: L1,  }
+  
+  
+Interface:
+  - { interface: Ethernet1/27, addr: 192.168.20.101, mask: 30, description: To Site2-BGW1, }  
+  - { interface: Ethernet1/28, addr: 192.168.20.105, mask: 30, description: To Site2-BGW2, } 
+
+  - { interface: Ethernet1/29, addr: 192.168.20.1, mask: 30, description: To Site2-Leaf1,  }  
+  - { interface: Ethernet1/30, addr: 192.168.20.5, mask: 30, description: To Site2-Leaf2, } 
+  - { interface: Ethernet1/31, addr: 192.168.20.9, mask: 30, description: To Site2-Leaf3, }  
+  - { interface: Ethernet1/32, addr: 192.168.20.13, mask: 30, description: To Site2-Leaf4, } 
